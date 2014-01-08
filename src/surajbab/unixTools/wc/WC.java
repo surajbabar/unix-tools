@@ -1,6 +1,6 @@
 package surajbab.unixTools.wc;
 
-import surajbab.unixTools.Text;
+import surajbab.unixTools.lib.Text;
 import surajbab.unixTools.lib.File;
 
 

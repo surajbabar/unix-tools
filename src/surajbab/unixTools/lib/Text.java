@@ -1,4 +1,4 @@
-package surajbab.unixTools;
+package surajbab.unixTools.lib;
 import java.lang.String;
 public class Text {
     public int lines(String text){
