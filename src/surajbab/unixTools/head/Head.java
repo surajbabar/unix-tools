@@ -15,7 +15,6 @@ public class Head {
         }
         fileContent = file.readFile(filename);
         String lines[] =fileContent.split("\r\n");
-        System.out.println(count);
         for (int line = 0; line < count-1; line++)
                 result+=lines[line]+"\r\n";
         result+=lines[count-1];
