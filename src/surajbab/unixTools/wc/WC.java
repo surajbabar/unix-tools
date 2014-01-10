@@ -1,23 +1,21 @@
 package surajbab.unixTools.wc;
 
-import surajbab.unixTools.lib.Text;
-import surajbab.unixTools.lib.File;
-
-
 public class WC {
-	public static void main(String[] args) {
-    String filename =args[0];
-	String fileContent;
+    private String text;
 
-    File file = new File();
-    Text text = new Text();
+    public WC(String Text) {
+        text = Text;
+    }
 
-    fileContent = file.readFile(filename);
+    public int lineCount() {
+        return text.split("\r\n").length;
+    }
 
-    int lines =text.lines(fileContent);
-    int words =text.words(fileContent);
-	int chars =text.chars(fileContent);
+    public int charCount() {
+        return text.length();
+    }
 
-	System.out.print("   "+lines+"\t"+words+"\t"+chars+"\t"+filename);
-	}
+    public int wordCount() {
+        return text.split("\\W+").length;
+    }
 }
