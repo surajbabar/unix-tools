@@ -1,4 +1,4 @@
-package surajbab.unixTools.wc;
+package surajbab.unixTools;
 
 public class WC {
     private String text;
