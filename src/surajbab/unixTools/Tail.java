@@ -7,7 +7,7 @@ public class Tail {
         int noOfLines = lines.length - count;
         if (noOfLines < 0) noOfLines = 0;
         for (int i = noOfLines; i < lines.length; i++)
-            tailLines += lines[i] + "\n";
+            tailLines += lines[i] + "\r\n";
         return tailLines;
     }
 }
