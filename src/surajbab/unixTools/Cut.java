@@ -1,9 +1,9 @@
 package surajbab.unixTools;
 
 public class Cut {
-    public String getFields(String file, int field, String delimitor) {
+    public String getFields(String data, int field, String delimitor) {
         String result = "", words[];
-        String lines[] = file.split("\r\n");
+        String lines[] = data.split("\r\n");
         for (String line : lines) {
             words = line.split(delimitor);
             if (words.length >= field)
