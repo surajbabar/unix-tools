@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp unix-tools.zip Client.SortClient $@
+java -cp $UNIX_HOME/unix-tools.jar Client.SortClient $@
