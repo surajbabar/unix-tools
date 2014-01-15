@@ -1,4 +1,6 @@
-package surajbab.unixTools.lib;
+package Client;
+
+import surajbab.unixTools.lib.File;
 
 public class SpaceReducer {
     public static void main(String[] args) {
