@@ -20,7 +20,7 @@ public class WCTest {
     public void testCharCount() throws Exception {
         String data = "first\r\nsecond\r\nThird";
         WC wc = new WC(data);
-        int expected = 3;
+        int expected = 20;
 
         int actual = wc.charCount();
 
