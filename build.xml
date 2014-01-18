@@ -20,7 +20,7 @@
             <classpath>
                 <pathelement location="build/classes"/>
                 <pathelement location="build/classes/tests"/>
-                <pathelement location="junit-4.10.jar"/>
+                <!--<pathelement location="junit-4.10.jar"/>-->
             </classpath>
             <batchtest>
                 <fileset dir="build/classes/tests">
