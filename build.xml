@@ -1,9 +1,4 @@
 <project name="unix-tools" default="build">
-    <!--<path id="junit.classpath">-->
-    <!--<fileset dir=".">-->
-    <!--<include name="junit-4.10.jar" />-->
-    <!--</fileset>-->
-    <!--</path>-->
     <target name="createDest">
         <mkdir dir="build"/>
         <mkdir dir="build/classes"/>
@@ -12,7 +7,7 @@
     </target>
     <target name="compile" depends="createDest">
         <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
-        <javac srcdir="tests" destdir="build/classes/tests" classpath="build/lib/junit-4.10.jar;build/classes"
+        <javac srcdir="tests" destdir="build/classes/tests" classpath="lib/junit-4.10.jar;build/classes"
                includeantruntime="false"/>
     </target>
     <target name="test" depends="compile">
@@ -20,14 +15,13 @@
             <classpath>
                 <pathelement location="build/classes"/>
                 <pathelement location="build/classes/tests"/>
-                <!--<pathelement location="junit-4.10.jar"/>-->
+                <pathelement location="junit-4.10.jar"/>
             </classpath>
             <batchtest>
                 <fileset dir="build/classes/tests">
                     <include name="**/*Test*"/>
                 </fileset>
             </batchtest>
-             <!--<formatter type = "brief" usefile = "false"/>-->
         </junit>
     </target>
     <target name="removeBuild">
