@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp $UNIX_HOME/unix-tools.jar Client.CutClient $1
+java -cp $UNIX_HOME/lib/unix-tools.jar Client.CutClient $@
