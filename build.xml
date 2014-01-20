@@ -1,9 +1,10 @@
-<project name="unix-tools" default="build">
+<project name="unix-tools" default="dist">
     <target name="createDest">
         <mkdir dir="build"/>
         <mkdir dir="build/classes"/>
         <mkdir dir="build/classes/tests"/>
-        <mkdir dir="build/jar"/>
+        <mkdir dir="build/lib"/>
+        <mkdir dir="build/bin"/>
     </target>
     <target name="compile" depends="createDest">
         <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
@@ -15,27 +16,34 @@
             <classpath>
                 <pathelement location="build/classes"/>
                 <pathelement location="build/classes/tests"/>
-                <pathelement location="junit-4.10.jar"/>
+                <pathelement location="lib/junit-4.10.jar"/>
             </classpath>
             <batchtest>
                 <fileset dir="build/classes/tests">
                     <include name="**/*Test*"/>
                 </fileset>
             </batchtest>
+            <formatter type="brief" usefile="false"/>
         </junit>
     </target>
-    <target name="removeBuild">
-        <delete dir="build"/>
+    <target name="removeClasses">
+        <delete dir="build/classes"/>
     </target>
     <target name="jar" depends="test">
-        <jar destfile="build/jar/app.jar" basedir="build/classes">
+        <jar destfile="build/lib/app.jar" basedir="build/classes">
             <manifest>
                 <attribute name="Main-Class" value="Client.Options"/>
             </manifest>
         </jar>
     </target>
     <target name="build" depends="jar">
-        <java jar="build/jar/app.jar" fork="true"/>
+        <java jar="build/lib/app.jar" fork="true"/>
     </target>
-    <target name="dist" depends="build"/>
+    <target name="copyDocs">
+        <copydir src="Commands" dest="build/bin"/>
+        <copy file="README.md" todir="build"/>
+    </target>
+    <target name="dist" depends="build,removeClasses,copyDocs">
+        <zip zipfile="unix-tools.zip" basedir="build"/>
+    </target>
 </project>
