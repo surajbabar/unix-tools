@@ -30,7 +30,7 @@
         <delete dir="build/classes"/>
     </target>
     <target name="jar" depends="test">
-        <jar destfile="build/lib/app.jar" basedir="build/classes">
+        <jar destfile="build/lib/unix-tools.jar" basedir="build/classes">
             <manifest>
                 <attribute name="Main-Class" value="Client.Options"/>
             </manifest>
@@ -41,9 +41,12 @@
     </target>
     <target name="copyDocs">
         <copydir src="Commands" dest="build/bin"/>
-        <copy file="README.md" todir="build"/>
+        <copy file="README.md" tofile="build/README.txt"/>
     </target>
     <target name="dist" depends="build,removeClasses,copyDocs">
         <zip zipfile="unix-tools.zip" basedir="build"/>
+    </target>
+    <target name="removeBuild">
+        <delete dir="build"/>
     </target>
 </project>
