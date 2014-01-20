@@ -1,4 +1,5 @@
 *.class
 /.idea
 build
+*.zip
 Commands/unix-tools.jar
