@@ -7,9 +7,9 @@
         <mkdir dir="build/bin"/>
     </target>
     <target name="compile" depends="createDest">
-        <javac srcdir="src" destdir="build/classes" includeantruntime="false"/>
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false" debug="yes"/>
         <javac srcdir="tests" destdir="build/classes/tests" classpath="lib/junit-4.10.jar;build/classes"
-               includeantruntime="false"/>
+               includeantruntime="false" debug="yes"/>
     </target>
     <target name="test" depends="compile">
         <junit>
@@ -18,7 +18,7 @@
                 <pathelement location="build/classes/tests"/>
                 <pathelement location="lib/junit-4.10.jar"/>
             </classpath>
-            <batchtest>
+            <batchtest >
                 <fileset dir="build/classes/tests">
                     <include name="**/*Test*"/>
                 </fileset>
@@ -29,7 +29,11 @@
     <target name="removeClasses">
         <delete dir="build/classes"/>
     </target>
-    <target name="jar" depends="test">
+
+    <target name="removeTests">
+        <delete dir="build/classes/tests"/>
+    </target>
+    <target name="jar" depends="test,removeTests">
         <jar destfile="build/lib/unix-tools.jar" basedir="build/classes">
             <manifest>
                 <attribute name="Main-Class" value="Client.Options"/>
