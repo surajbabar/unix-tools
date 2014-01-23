@@ -60,7 +60,7 @@
                 <pathelement location="build/code-coverage/instrumented"/>
                 <pathelement location="build/src" />
                 <pathelement location="build/tests" />
-                <pathelement location="lib/junit-4.10.jar"/>
+                <pathelement location="external-lib/junit-4.10.jar"/>
             </classpath>
 
             <classpath refid= "cobertura.classpath"/>
